@@ -32,7 +32,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
-mainClassName = 'hello.HelloWorld'
+mainClassName = 'jlox.Lox'
 
 // tag::repositories[]
 repositories {
@@ -42,7 +42,7 @@ repositories {
 
 // tag::jar[]
 jar {
-    baseName = 'jb-hello-world'
+    baseName = 'jlox'
     version =  '0.1.0'
 }
 // end::jar[]
@@ -52,13 +52,11 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 dependencies {
-    compile "joda-time:joda-time:2.2"
-    testCompile "junit:junit:4.12"
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    implementation group: 'joda-time', name: 'joda-time', version: '2.12.1'
 }
+
+
 // end::dependencies[]
 
-// tag::wrapper[]
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
-}
 // end::wrapper[]
